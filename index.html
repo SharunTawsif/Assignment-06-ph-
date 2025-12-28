@@ -26,47 +26,72 @@
   </head>
 
   <body>
-    <!-- Navbar -->
-    <div class="navbar bg-base-100 shadow-sm bg-[#15803D] text-white py-3 px-15">
-      <div class="navbar-start">
-        <div class="dropdown">
-          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+    <section>
+      <!-- Navbar -->
+      <div
+        class="navbar bg-base-100 shadow-sm bg-[#15803D] text-white py-3 px-15"
+      >
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabindex="-1"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
+              <li><a>About</a></li>
+              <li><a>Gallery</a></li>
+              <li><a>Plant a Tree</a></li>
+            </ul>
           </div>
-          <ul
-            tabindex="-1"
-            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-          >
+          <a class="btn btn-ghost text-xl">Green Earth</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1">
             <li><a>About</a></li>
             <li><a>Gallery</a></li>
             <li><a>Plant a Tree</a></li>
           </ul>
         </div>
-        <a class="btn btn-ghost text-xl">Green Earth</a>
+        <div class="navbar-end">
+          <a class="btn-primary px-4 py-2">Plant a Tree</a>
+        </div>
       </div>
-      <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal px-1">
-          <li><a>About</a></li>
-          <li><a>Gallery</a></li>
-          <li><a>Plant a Tree</a></li>
-        </ul>
+      <!-- Navbar Complete -->
+    </section>
+
+    <!-- Banner start -->
+    <section class="flex bg-[#CFF0DC] justify-between">
+      <div>
+        <img src="./assets/hero-leaf1.png" alt="" />
       </div>
-      <div class="navbar-end">
-        <a class="btn-primary px-4 py-2">Plant a Tree</a>
+      <div class="text-center justify-center items-center my-auto flex flex-col gap-4">
+        <h1 class="font-bold text-center text-4xl ">Plant a Tree, Grow a Future</h1>
+        <p class="text-[#1F2937]/80">
+          Join our mission to plant 1 million trees and make the Earth greener
+          for future generations.
+        </p>
+        <button class="btn-primary px-4 py-2">Get Involved</button>
       </div>
-    </div>
+      
+      <div>
+        <img src="./assets/hero-leaf2.png" alt="" />
+      </div>
+    </section>
+    <!-- Banner end -->
   </body>
 </html>
