@@ -58,8 +58,8 @@ const displayAllPlants = (datas) => {
                 >
                 <img src="${data.image}" alt="" class="h-40 object-cover rounded-md" />
 
-                <p class="text-left font-bold text-lg mt-3">
-                    ${data.name}
+                <p class="text-left font-bold text-lg mt-3 cursor-pointer" onclick="loadModal(${data.id})">
+                        ${data.name}
                 </p>
 
                 <p class="text-left text-[#71717A]/80 flex-grow">
@@ -129,9 +129,10 @@ const displayCategoryElement = (elements) => {
                 >
                 <img src="${element.image}" alt="" class="h-40 object-cover rounded-md" />
 
-                <p class="text-left font-bold text-lg mt-3">
-                    ${element.name}
+                <p class="text-left font-bold text-lg mt-3 cursor-pointer" onclick="my_modal_5.showModal()">
+                        ${element.name}
                 </p>
+
 
                 <p class="text-left text-[#71717A]/80 flex-grow">
                     ${element.description}
@@ -157,3 +158,63 @@ const displayCategoryElement = (elements) => {
 
 
 // category element end
+
+// Modal things start
+
+const loadModal = (id) => {
+    const url = `https://openapi.programming-hero.com/api/plant/${id}`
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayModal(data.plants))
+    
+}
+// "plants": {
+// "id": 1,
+// "image": "https://i.ibb.co.com/cSQdg7tf/mango-min.jpg",
+// "name": "Mango Tree",
+// "description": "A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green canopy offers shade, while its sweet fruits are rich in vitamins and minerals.",
+// "category": "Fruit Tree",
+// "price": 500
+// }
+const displayModal = (data) => {
+    // console.log(data);
+    const detailBox = document.getElementById("details-container");
+    detailBox.innerHTML = `
+            <div
+                class="bg-white text-black rounded-xl shadow-lg p-5 flex flex-col h-full"
+                >
+
+                <p class="text-left font-bold text-xl mt-3 cursor-pointer my-5" onclick="my_modal_5.showModal()">
+                        ${data.name}
+                </p>
+
+                <img src="${data.image}" alt="" class="h-60 object-cover rounded-md" />
+                
+                <p class=" my-2">
+                    <span class ="font-bold">Category: </span> 
+                    <span class="font-normal"> ${data.category}</span>
+                </p>
+
+                <p class="my-2">
+                    <span class="font-bold">Price:</span>
+                    <span class="font-normal"> ৳${data.price}</span>
+                </p>
+                
+
+
+                <p class="font-bold my-2">
+                    <span class="font-bold">Description: </span>
+                    <span class="font-normal"> ${data.description} </span>
+                </p>
+
+                
+
+            </div>
+    `
+    document.getElementById("my_modal_5").showModal();
+
+}
+
+
+
+// Modal things end
