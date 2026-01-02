@@ -14,6 +14,11 @@
       rel="stylesheet"
     />
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
     <!-- daisyui+tailwind -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@5"
@@ -113,7 +118,16 @@
           id="tree-container"
           class="col-span-3 p-10 grid grid-cols-3 gap-6 h-auto"
         ></div>
-        <div class="">three</div>
+        <div>
+          <h2 class="text-black text-xl font-bold text-left my-15">
+            Your Cart
+          </h2>
+          
+          <div id="cart-container">
+
+          </div>
+
+        </div>
       </div>
 
       <!-- main part end -->
@@ -186,7 +200,6 @@
       <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
       <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
-            
           <div id="details-container"></div>
 
           <div class="modal-action">

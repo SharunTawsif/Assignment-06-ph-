@@ -1,3 +1,4 @@
+let cart = [];
 // Category loading start
 const loadCategories = () => {
 fetch("https://openapi.programming-hero.com/api/categories")
@@ -73,7 +74,7 @@ const displayAllPlants = (datas) => {
                     <p class="font-semibold">৳${data.price}</p>
                 </div>
 
-                <button class="bg-[#15803D] rounded-3xl text-white p-3 w-full mt-4">
+                <button onclick = "addToCart(${data.id})" class="bg-[#15803D] rounded-3xl text-white p-3 w-full mt-4">
                     Add to Cart
                 </button>
             </div>
@@ -145,7 +146,7 @@ const displayCategoryElement = (elements) => {
                     <p class="font-semibold">৳${element.price}</p>
                 </div>
 
-                <button class="bg-[#15803D] rounded-3xl text-white p-3 w-full mt-4">
+                <button onclick = "addToCart(${element.id})" class="bg-[#15803D] rounded-3xl text-white p-3 w-full mt-4">
                     Add to Cart
                 </button>
             </div>
@@ -217,4 +218,77 @@ const displayModal = (data) => {
 
 
 
+
+
 // Modal things end
+
+
+// cart things start
+
+const addToCart = (id) => {
+    const url = `https://openapi.programming-hero.com/api/plant/${id}`
+    fetch(url)
+    .then(res => res.json())
+    .then (data => {
+        cart.push(data.plants)
+        displayCart();
+    })
+    
+}
+
+
+
+const displayCart = () => {
+    const cartContainer = document.getElementById("cart-container");
+    cartContainer.innerHTML = "";
+    
+    let totall = 0;
+
+    for (let i = 0; i < cart.length; i++) {
+
+        totall += cart[i].price;
+
+        const div = document.createElement("div");
+        div.innerHTML = `
+            <div
+              class="flex items-center justify-between text-black border-b text-left">
+              <div>
+                <h1 class="font-bold text-lg">${cart[i].name}</h1>
+                <p class="text-gray-600">
+                <span>৳</span>
+                <span>${cart[i].price}</span>
+                </p>
+              </div>
+
+              <button onclick = "removeFromCart(${i})" class="text-red-600 text-2xl hover:text-red-800">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+        `;
+
+        cartContainer.append(div);
+    }
+
+    const total = document.createElement("div");
+    total.innerHTML = `
+        <p class="font-bold text-black text-right text-lg">
+                <span>Total: ৳${totall}</span>
+        </p>
+    `
+    cartContainer.append(total);
+}
+
+const removeFromCart = (index) => {
+    let newCart = []
+    for (let i = 0; i < cart.length; i++) {
+        if (i != index) {
+            newCart.push(cart[i]);
+        }
+    }
+    cart = newCart;
+    displayCart();
+}
+
+
+
+// cart things end
