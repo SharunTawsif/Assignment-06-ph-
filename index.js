@@ -27,6 +27,34 @@ const displayCategories = (categories) => {
 }
 // Category loading end
 
+
+
+
+
+
+
+// spinner related things start
+
+const manageSpinner = (status) => {
+    if (status == true) {
+        document.getElementById("spinner").classList.remove("hidden");
+        document.getElementById("tree-container").classList.add("hidden");
+
+    }
+    else {
+        document.getElementById("tree-container").classList.remove("hidden");
+        document.getElementById("spinner").classList.add("hidden");
+    }
+}
+
+
+
+
+// spinner related things end
+
+
+
+
 const removeActive = () => {
     const categoryButton = document.querySelectorAll(".flagg") //agee dot disi karon css er moto kore dhorte hoy 
     for (const ctBtn of categoryButton) {
@@ -39,6 +67,7 @@ const removeActive = () => {
 // load all plant start
 
 const allPlant = () => {
+    manageSpinner(true);
     fetch("https://openapi.programming-hero.com/api/plants")
     .then(res => res.json())
     .then(data => displayAllPlants(data.plants))
@@ -83,6 +112,7 @@ const displayAllPlants = (datas) => {
         treeContainer.append(card);
 
     }
+    manageSpinner(false);
 }
 
 
@@ -103,6 +133,7 @@ const displayAllPlants = (datas) => {
 // category element start
 
 const loadCategoryElement = (categoryId) => {
+    manageSpinner(true);
     const url = `https://openapi.programming-hero.com/api/category/${categoryId}`;
     fetch(url)
     .then(res => res.json())
@@ -155,6 +186,7 @@ const displayCategoryElement = (elements) => {
         treeContainer.append(card);
 
     }
+    manageSpinner(false);
 }
 
 
@@ -292,3 +324,7 @@ const removeFromCart = (index) => {
 
 
 // cart things end
+
+
+
+

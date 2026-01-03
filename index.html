@@ -106,27 +106,37 @@
     <section class="bg-[#CFF0DC]/30">
       <!-- main part start -->
 
-      <h1 class="text-center font-bold text-4xl p-5">Choose Your Trees</h1>
-      <div
-        class="grid grid-cols-5 items-center text-center gap-6 text-white p-4 items-start"
+      <h1 class="text-center font-bold text-4xl p-5 pt-15">Choose Your Trees</h1>
+      <section
+        id="spinner"
+        class="flex justify-center items-center py-5 hidden"
       >
-        <div class="text-left p-20 gap-20">
+        <span class="loading loading-spinner loading-xl"></span>
+      </section>
+
+      <div
+        class="grid grid-cols-5 text-center gap-6 text-white p-4 items-start"
+      >
+        <div class="text-left p-10 gap-10">
           <h1 class="font-bold text-2xl my-5 text-black">Categories</h1>
           <div id="level-container" class="space-y-3 p-1"></div>
         </div>
-        <div
-          id="tree-container"
-          class="col-span-3 p-10 grid grid-cols-3 gap-6 h-auto"
-        ></div>
+
+        <!-- <div id="tree-container" class="col-span-3 p-10 grid grid-cols-3 gap-6 h-auto">
+            
+        </div> -->
+        <div class="col-span-3 p-10">
+          <section id="spinner" class="flex justify-center items-center py-20 hidden">
+            <span class="loading loading-spinner loading-xl"></span>
+          </section>
+
+          <div id="tree-container" class="grid grid-cols-3 gap-6"></div>
+        </div>
+
         <div>
-          <h2 class="text-black text-xl font-bold text-left my-15">
-            Your Cart
-          </h2>
-          
-          <div id="cart-container">
+          <h2 class="text-black text-xl font-bold text-left p-10">Your Cart</h2>
 
-          </div>
-
+          <div id="cart-container"></div>
         </div>
       </div>
 
