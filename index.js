@@ -273,6 +273,8 @@ const addToCart = (id) => {
 const displayCart = () => {
     const cartContainer = document.getElementById("cart-container");
     cartContainer.innerHTML = "";
+
+    
     
     let totall = 0;
 
@@ -283,7 +285,7 @@ const displayCart = () => {
         const div = document.createElement("div");
         div.innerHTML = `
             <div
-              class="flex items-center justify-between text-black border-b text-left">
+              class="bg-[#F0FDF4] rounded-xl p-5 flex items-center justify-between text-black border-b text-left">
               <div>
                 <h1 class="font-bold text-lg">${cart[i].name}</h1>
                 <p class="text-gray-600">
